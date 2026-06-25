@@ -1,0 +1,21 @@
+body{
+    background-color:white;
+    
+}
+h1 {
+    color: rgb(4, 21, 36);
+}
+
+img{
+    width: 20%;
+}
+
+.rodape{
+    border: 2px solid black;
+    width: 100%;
+    height: 50%;
+    color: #503d3d;
+
+}
+
+

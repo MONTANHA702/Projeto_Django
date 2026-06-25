@@ -1,0 +1,41 @@
+{% extends 'motorartigos/base.html' %}
+{% load static %}
+
+
+{% block content %}
+
+    <h1>O melhor site de Django, IA e Data Science do Brasil</h1>
+    <a href="{% url 'artigo' %}">
+        <img src="{% static 'img/gpt.png' %}" alt="logomarca do chatgpt com fundo verde", width="30%">
+    </a>
+    
+ <a href="{% url 'doc_maritaca' %}">
+        <img src="{% static 'img/maritaca.png' %}" alt="logomarca do chatgpt com fundo verde", width="30%">
+    </a>
+
+<a href="{% url 'doc_minstral' %}">
+        <img src="{% static 'img/minstral.png' %}" alt="logomarca do chatgpt com fundo verde", width="30%">
+    </a>
+
+<a href="{% url 'doc_mysql' %}">
+        <img src="{% static 'img/msql.png' %}" alt="logomarca do chatgpt com fundo verde", width="30%">
+    </a>
+
+<h1>Autores Cadastrados</h1>
+<ul>
+    {% for autor in autores %}
+        <li>
+            <strong>ID do Autor:</strong>{{chave}} <br>
+            <strong>Nome:</strong>{{autor.nome}} <br>
+            <strong>Biografia:</strong>{{autor.biografia}} <br>
+            <strong>E-mail:</strong>{{autor.email}}
+        </li>
+        <hr>
+    {% empty %}
+        <p>Nenhum autor encotrado.</p>
+    {% endfor %}
+</ul>
+{% endblock %}
+
+
+    
