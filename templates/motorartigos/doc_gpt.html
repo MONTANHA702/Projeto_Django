@@ -1,0 +1,34 @@
+{% extends 'motorartigos/base.html' %}
+{% load static %}
+
+{% block content %}
+<main class="conteudo-principal">
+    
+    <div class="doc-header">
+        <img src="{% static 'img/gpt.png' %}" alt="Logomarca do ChatGPT" class="doc-logo">
+        <div>
+            <h1>Documentos GPT</h1>
+            <h2>Entenda o que é e como utilizar a Inteligência Artificial da OpenAI</h2>
+        </div>
+    </div>
+
+    <section class="doc-descricao">
+        <p>
+            O <strong>ChatGPT</strong> é um modelo de linguagem avançado desenvolvido pela OpenAI. 
+            Ele utiliza arquiteturas de redes neurais profundas para compreender o contexto de conversas, 
+            responder a perguntas, redigir textos, corrigir códigos e auxiliar desenvolvedores no dia a dia.
+        </p>
+        <p>
+            Para a nossa comunidade Django, ele funciona como um excelente assistente de programação, 
+            ajudando a refatorar códigos, encontrar bugs e sugerir boas práticas de arquitetura de software.
+        </p>
+    </section>
+
+    <div class="doc-acao">
+        <a href="https://chatgpt.com/" target="_blank" class="botao-chat">
+            🚀 Acessar o ChatGPT Oficial
+        </a>
+    </div>
+
+</main>
+{% endblock %}

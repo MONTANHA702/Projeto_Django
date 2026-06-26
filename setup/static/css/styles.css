@@ -1,21 +1,410 @@
-body{
-    background-color:white;
-    
+
+/* ==========================================================================
+   Estilos Globais - Paleta Invertida (Fundo Azul e Botões Escuros)
+   ========================================================================== */
+:root {
+    --bg-principal: #2563eb;       /* O Azul Royal marcante agora é o fundo da página */
+    --azul-escuro: #0f172a;        /* Azul Slate quase preto para os botões e títulos principais */
+    --azul-primario: #1e293b;      /* Azul escuro para o estado normal dos botões do menu */
+    --azul-hover: #334155;         /* Tom um pouco mais claro para o efeito hover nos botões */
+    --azul-claro: #eff6ff;         /* Azul gelo bem claro para textos sobre o fundo escuro */
+    --texto-cor: #f8fafc;          /* Branco acinzentado para leitura confortável sobre o fundo azul */
+    --borda-cor: #60a5fa;          /* Borda azul clara para dividir as seções de forma suave */
 }
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-principal);
+    color: var(--texto-cor);
+    line-height: 1.6;
+    padding: 40px 20px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* ==========================================================================
+   Menu de Navegação (Botões Escuros com Texto Claro)
+   ========================================================================== */
+ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 40px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid var(--borda-cor);
+}
+
+ul li a {
+    display: inline-block;
+    text-decoration: none;
+    background-color: var(--azul-primario);
+    color: #ffffff;
+    padding: 10px 18px;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 14px;
+    transition: all 0.2s ease-in-out;
+    border: 1px solid var(--azul-escuro);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+ul li a:hover {
+    background-color: var(--azul-hover);
+    color: #ffffff;
+    border-color: var(--azul-hover);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+}
+
+/* ==========================================================================
+   Títulos da Página (Estilizados como super botões bem escuros)
+   ========================================================================== */
 h1 {
-    color: rgb(4, 21, 36);
+    display: inline-block;
+    background-color: var(--azul-escuro);
+    color: #ffffff;
+    font-size: 28px;
+    padding: 12px 24px;
+    border-radius: 8px;
+    margin-bottom: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    letter-spacing: -0.5px;
+    border: 1px solid #1e293b;
 }
 
-img{
-    width: 20%;
+h4 {
+    color: #bfdbfe; /* Azul pastel claro para dar bom contraste sobre o fundo */
+    font-size: 16px;
+    font-weight: 500;
+    margin-left: 4px;
+    margin-bottom: 35px;
 }
 
-.rodape{
-    border: 2px solid black;
-    width: 100%;
-    height: 50%;
-    color: #503d3d;
-
+/* ==========================================================================
+   Bloco de Conteúdo Dinâmico ({% block content %})
+   ========================================================================== */
+main, .conteudo-principal {
+    background: rgba(15, 23, 42, 0.6); /* Fundo escuro semitransparente para destacar o texto */
+    padding: 30px;
+    border-radius: 8px;
+    backdrop-filter: blur(4px); /* Efeito de vidro fosco moderno */
+    border: 1px solid var(--borda-cor);
+    margin-bottom: 40px;
 }
 
+/* ==========================================================================
+   Rodapé (Partials Footer)
+   ========================================================================== */
+footer {
+    text-align: center;
+    font-size: 13px;
+    color: #93c5fd;
+    padding-top: 20px;
+    border-top: 1px solid var(--borda-cor);
+}
+/* ==========================================================================
+   Layout do Menu com o Clima Alinhado
+   ========================================================================== */
+.menu-container {
+    display: flex;
+    justify-content: space-between; /* Joga os botões para a esquerda e o clima para a direita */
+    align-items: flex-start;
+    gap: 20px;
+    margin-bottom: 40px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid var(--borda-cor);
+}
+
+/* Ajuste na lista antiga para não quebrar o layout */
+ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    border-bottom: none; /* Removemos a borda daqui pois ela foi para o container */
+    margin-bottom: 0;
+    padding-bottom: 0;
+    flex: 1; /* Faz a lista ocupar o espaço restante */
+}
+
+/* Estilização do Widget de Clima */
+.clima-box {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background-color: var(--azul-escuro); /* Mesmo azul quase preto dos botões */
+    color: #ffffff;
+    padding: 10px 15px;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 14px;
+    border: 1px solid var(--borda-cor);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    white-space: nowrap; /* Evita que o texto quebre em duas linhas */
+}
+
+#clima-icone {
+    font-size: 18px;
+}
+
+#clima-cidade {
+    font-size: 11px;
+    color: #bfdbfe; /* Azul pastel claro para a legenda da cidade */
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-left: 4px;
+}
+
+/* ==========================================================================
+   Estilização do Conteúdo da Index (Artigos e Autores)
+   ========================================================================== */
+
+.subtitulo-secao {
+    color: #ffffff;
+    font-size: 22px;
+    margin-bottom: 20px;
+    border-left: 4px solid var(--borda-cor);
+    padding-left: 10px;
+}
+
+.section-artigos {
+    margin-bottom: 50px;
+}
+
+/* Grid de Artigos/Logos */
+.grid-artigos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 20px;
+}
+
+.card-link {
+    text-decoration: none;
+    color: inherit;
+}
+
+.card-imagem {
+    background-color: var(--azul-primario);
+    border: 1px solid var(--borda-cor);
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    transition: all 0.2s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.card-imagem img {
+    width: 80px;            /* Define a largura ideal para o ícone */
+    height: 80px;           /* Mantém a proporção quadrada */
+    object-fit: contain;    /* Garante que o logo não fique esticado ou distorcido */
+    max-width: 100%;        /* Impede que a imagem ultrapasse o tamanho do card */
+    display: block;
+    margin: 0 auto;         /* Centraliza perfeitamente */
+}
+
+.card-imagem span {
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+/* Efeito Hover nos cards de logos */
+.card-imagem:hover {
+    transform: translateY(-4px);
+    background-color: var(--azul-hover);
+    border-color: #ffffff;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Grid e Cards de Autores */
+.grid-autores {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.card-autor {
+    background-color: #ffffff;
+    color: var(--azul-escuro);
+    padding: 24px;
+    border-radius: 8px;
+    position: relative;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-top: 4px solid var(--azul-primario); /* Detalhe colorido no topo do card */
+}
+
+.autor-badge {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background-color: var(--azul-claro);
+    color: var(--azul-primario);
+    font-size: 11px;
+    font-weight: 700;
+    padding: 3px 8px;
+    border-radius: 20px;
+}
+
+.autor-nome {
+    font-size: 18px;
+    margin-bottom: 8px;
+    padding-right: 30px; /* Evita que o nome bata no badge do ID */
+}
+
+.autor-bio {
+    font-size: 14px;
+    color: #475569;
+    margin-bottom: 15px;
+    line-height: 1.5;
+}
+
+.autor-email {
+    font-size: 12px;
+    color: #64748b;
+    border-top: 1px solid #e2e8f0;
+    padding-top: 10px;
+    font-weight: 500;
+}
+
+.sem-dados {
+    color: #bfdbfe;
+    font-style: italic;
+}
+
+/* ==========================================================================
+   Estilização da Página de Documentação do GPT
+   ========================================================================== */
+
+.doc-header {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 30px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 20px;
+}
+
+/* Garante o tamanho controlado do logo nesta página interna */
+.doc-logo {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+}
+
+.doc-descricao p {
+    font-size: 16px;
+    line-height: 1.8;
+    color: #f8fafc;
+    margin-bottom: 20px;
+}
+
+.doc-acao {
+    margin-top: 35px;
+    text-align: left;
+}
+
+/* Botão de destaque para o link externo */
+.botao-chat {
+    display: inline-block;
+    background-color: #10a37f; /* O verde clássico característico do ChatGPT */
+    color: #ffffff;
+    text-decoration: none;
+    padding: 12px 24px;
+    border-radius: 6px;
+    font-weight: 700;
+    font-size: 16px;
+    transition: all 0.2s ease-in-out;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+}
+
+.botao-chat:hover {
+    background-color: #1a7f66;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* ==========================================================================
+   Estilização da Página de Documentação da Maritaca AI
+   ========================================================================== */
+
+/* Botão de destaque para o link externo da Maritaca */
+.botao-maritaca {
+    display: inline-block;
+    background-color: #e67e22; /* Laranja caloroso que remete à marca */
+    color: #ffffff;
+    text-decoration: none;
+    padding: 12px 24px;
+    border-radius: 6px;
+    font-weight: 700;
+    font-size: 16px;
+    transition: all 0.2s ease-in-out;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+}
+
+.botao-maritaca:hover {
+    background-color: #d35400;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* ==========================================================================
+   Estilização da Página de Documentação do Mistral AI
+   ========================================================================== */
+
+/* Botão de destaque para o link externo do Mistral */
+.botao-mistral {
+    display: inline-block;
+    background-color: #ff4a00; /* Laranja chama/neon oficial da Mistral */
+    color: #ffffff;
+    text-decoration: none;
+    padding: 12px 24px;
+    border-radius: 6px;
+    font-weight: 700;
+    font-size: 16px;
+    transition: all 0.2s ease-in-out;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+}
+
+.botao-mistral:hover {
+    background-color: #e03e00;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* ==========================================================================
+   Estilização da Página de Documentação do MySQL
+   ========================================================================== */
+
+/* Botão de destaque para o link externo do MySQL */
+.botao-mysql {
+    display: inline-block;
+    background-color: #00758f; /* Azul petróleo oficial da identidade do MySQL */
+    color: #ffffff;
+    text-decoration: none;
+    padding: 12px 24px;
+    border-radius: 6px;
+    font-weight: 700;
+    font-size: 16px;
+    transition: all 0.2s ease-in-out;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+    border: 1px solid #f29111; /* Sutil borda laranja que remete ao golfinho da marca */
+}
+
+.botao-mysql:hover {
+    background-color: #005b6f;
+    border-color: #ffffff;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
 

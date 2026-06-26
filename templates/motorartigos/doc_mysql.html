@@ -2,8 +2,30 @@
 {% load static %}
 
 {% block content %}
-
-    <h1>Documentos MySQL!!!</h1>
+<main class="conteudo-principal">
     
+    <div class="doc-header">
+        <img src="{% static 'img/msql.png' %}" alt="Logomarca do MySQL" class="doc-logo">
+        <div>
+            <h1>Documentos MySQL</h1>
+            <h2>Aprenda a gerenciar dados com o banco de dados relacional mais popular do mercado</h4>
+        </div>
+    </div>
+
+    <section class="doc-descricao">
+        <p>
+            O <strong>MySQL</strong> é um sistema de gerenciamento de banco de dados relacional (SGBD) de código aberto baseado na linguagem SQL. Ele é amplamente conhecido por sua confiabilidade, velocidade e facilidade de uso em aplicações web de qualquer escala.
+        </p>
+        <p>
+            No ecossistema do Django, o MySQL é um aliado poderoso. Através do ORM do Django, você consegue mapear suas classes Python para tabelas relacionais do MySQL automaticamente, criando sistemas robustos capazes de armazenar milhões de registros com segurança e performance.
+        </p>
+    </section>
+
+    <div class="doc-acao">
+        <a href="https://dev.mysql.com/doc/" target="_blank" class="botao-mysql">
+            🐬 Documentação Oficial do MySQL
+        </a>
+    </div>
+
+</main>
 {% endblock %}
- 

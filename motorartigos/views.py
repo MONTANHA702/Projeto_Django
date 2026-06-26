@@ -19,8 +19,8 @@ autores = Autor.objects.all()
 def index(request):
     return render(request, 'motorartigos/index.html', {'autores': autores})
 
-def artigo(request):
-    return render(request, 'motorartigos/artigo.html')
+def doc_gpt(request):
+    return render(request, 'motorartigos/doc_gpt.html')
 #ele precisa de uma rota que vamos colocar no urls.py
 
 def doc_maritaca(request):

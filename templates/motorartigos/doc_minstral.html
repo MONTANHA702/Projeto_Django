@@ -2,8 +2,33 @@
 {% load static %}
 
 {% block content %}
-
-    <h1>Documentos Mintral!!!</h1>
+<main class="conteudo-principal">
     
+    <!-- Cabeçalho da Página com o Logo integrado -->
+    <div class="doc-header">
+        <img src="{% static 'img/minstral.png' %}" alt="Logomarca do Mistral AI" class="doc-logo">
+        <div>
+            <h1>Documentos Mistral AI</h1>
+            <h2>Explore os modelos abertos, eficientes e de alta performance da Europa</h2>
+        </div>
+    </div>
+
+    <!-- Seção de Descrição -->
+    <section class="doc-descricao">
+        <p>
+            O <strong>Mistral AI</strong> é uma plataforma de inteligência artificial fundada na França que se consolidou como uma das maiores referências em modelos de código aberto (*open-source*). Seus modelos, como o <em>Mistral 7B</em> e o <em>Mixtral</em>, são conhecidos por entregar altíssima eficiência computacional.
+        </p>
+        <p>
+            Para quem desenvolve em Django, o Mistral é uma escolha fantástica porque permite rodar modelos de IA poderosos localmente ou através de APIs leves e muito mais baratas, oferecendo excelente privacidade de dados e flexibilidade para customizar assistentes e automações.
+        </p>
+    </section>
+
+    <!-- Botão de Ação para o Site Oficial -->
+    <div class="doc-acao">
+        <a href="https://mistral.ai/" target="_blank" class="botao-mistral">
+            🔥 Explorar o Mistral AI
+        </a>
+    </div>
+
+</main>
 {% endblock %}
- 

@@ -1,41 +1,61 @@
 {% extends 'motorartigos/base.html' %}
 {% load static %}
 
-
 {% block content %}
+<main class="conteudo-principal">
 
-    <h1>O melhor site de Django, IA e Data Science do Brasil</h1>
-    <a href="{% url 'artigo' %}">
-        <img src="{% static 'img/gpt.png' %}" alt="logomarca do chatgpt com fundo verde", width="30%">
-    </a>
-    
- <a href="{% url 'doc_maritaca' %}">
-        <img src="{% static 'img/maritaca.png' %}" alt="logomarca do chatgpt com fundo verde", width="30%">
-    </a>
+    <section class="section-artigos">
+        <h2 class="subtitulo-secao">Tecnologias & Documentações</h2>
+        
+        <div class="grid-artigos">
+            <a href="{% url 'doc_gpt' %}" class="card-link">
+                <div class="card-imagem">
+                    <img src="{% static 'img/gpt.png' %}" alt="Logomarca do ChatGPT">
+                    <span>ChatGPT</span>
+                </div>
+            </a>
+            
+            <a href="{% url 'doc_maritaca' %}" class="card-link">
+                <div class="card-imagem">
+                    <img src="{% static 'img/maritaca.png' %}" alt="Logomarca da Maritaca AI">
+                    <span>Maritaca AI</span>
+                </div>
+            </a>
 
-<a href="{% url 'doc_minstral' %}">
-        <img src="{% static 'img/minstral.png' %}" alt="logomarca do chatgpt com fundo verde", width="30%">
-    </a>
+            <a href="{% url 'doc_minstral' %}" class="card-link">
+                <div class="card-imagem">
+                    <img src="{% static 'img/minstral.png' %}" alt="Logomarca do Mistral AI">
+                    <span>Mistral AI</span>
+                </div>
+            </a>
 
-<a href="{% url 'doc_mysql' %}">
-        <img src="{% static 'img/msql.png' %}" alt="logomarca do chatgpt com fundo verde", width="30%">
-    </a>
+            <a href="{% url 'doc_mysql' %}" class="card-link">
+                <div class="card-imagem">
+                    <img src="{% static 'img/msql.png' %}" alt="Logomarca do MySQL">
+                    <span>MySQL</span>
+                </div>
+            </a>
+        </div>
+    </section>
 
-<h1>Autores Cadastrados</h1>
-<ul>
-    {% for autor in autores %}
-        <li>
-            <strong>ID do Autor:</strong>{{chave}} <br>
-            <strong>Nome:</strong>{{autor.nome}} <br>
-            <strong>Biografia:</strong>{{autor.biografia}} <br>
-            <strong>E-mail:</strong>{{autor.email}}
-        </li>
-        <hr>
-    {% empty %}
-        <p>Nenhum autor encotrado.</p>
-    {% endfor %}
-</ul>
+    <section class="section-autores">
+        <h2 class="subtitulo-secao">Autores Cadastrados</h2>
+        
+        <div class="grid-autores">
+            {% for autor in autores %}
+                <div class="card-autor">
+                    <div class="autor-badge">#{{ forloop.counter }}</div>
+                    <h3 class="autor-nome">{{ autor.nome }}</h3>
+                    <p class="autor-bio">{{ autor.biografia }}</p>
+                    <div class="autor-email">
+                        <span>📧 {{ autor.email }}</span>
+                    </div>
+                </div>
+            {% empty %}
+                <p class="sem-dados">Nenhum autor cadastrado no momento.</p>
+            {% endfor %}
+        </div>
+    </section>
+
+</main>
 {% endblock %}
-
-
-    

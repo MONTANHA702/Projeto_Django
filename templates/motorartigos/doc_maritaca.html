@@ -2,8 +2,30 @@
 {% load static %}
 
 {% block content %}
-
-    <h1>Documentos Maritaca!!!</h1>
+<main class="conteudo-principal">
     
+    <div class="doc-header">
+        <img src="{% static 'img/maritaca.png' %}" alt="Logomarca da Maritaca AI" class="doc-logo">
+        <div>
+            <h1>Documentos Maritaca AI</h1>
+            <h2>Conheça o MariTalk, o modelo de linguagem focado e treinado para o português do Brasil</h2>
+        </div>
+    </div>
+
+    <section class="doc-descricao">
+        <p>
+            A <strong>Maritaca AI</strong> é uma startup brasileira que desenvolve modelos de linguagem de grande porte (LLMs) otimizados especificamente para a língua portuguesa. O seu principal produto é o <strong>MariTalk</strong>.
+        </p>
+        <p>
+            Diferente de outros modelos globais, a Maritaca AI treina suas redes com uma carga massiva de conteúdo cultural, jurídico e acadêmico brasileiro. Para desenvolvedores Django no Brasil, ela se destaca pela excelente precisão ao lidar com gírias, contextos regionais e interpretação de textos nativos.
+        </p>
+    </section>
+
+    <div class="doc-acao">
+        <a href="https://www.maritaca.ai/" target="_blank" class="botao-maritaca">
+            🦜 Acessar a Maritaca AI
+        </a>
+    </div>
+
+</main>
 {% endblock %}
- 
