@@ -1,0 +1,30 @@
+<!-- Partial reutilizável: card de artigo -->
+<div class="article-card h-100">
+  <div class="card-img-wrapper">
+    {% if artigo.imagem_capa %}
+      <img src="{{ artigo.imagem_capa.url }}" alt="capa" class="card-img-custom">
+    {% else %}
+      <div class="card-img-placeholder">
+        <i class="bi bi-file-earmark-text"></i>
+      </div>
+    {% endif %}
+  </div>
+  <div class="card-body-custom">
+    <div class="card-meta">
+      <span><i class="bi bi-clock"></i> {{ artigo.data_publicacao|date:"d/m/Y" }}</span>
+      <span><i class="bi bi-tag"></i> {{ artigo.id_fk_eixo.nome }}</span>
+    </div>
+    <p class="card-preview-text">
+  {{ artigo.texto|striptags|truncatechars:120 }}
+</p>
+    <div class="card-footer-custom">
+      <div class="author-info">
+        <div class="author-avatar-sm">{{ artigo.id_fk_autor.nome|first|upper }}</div>
+        <span class="author-name-sm">{{ artigo.id_fk_autor.nome }}</span>
+      </div>
+      <a href="{% url 'artigo' %}?id={{ artigo.id }}" class="read-more-link">
+        Ler mais <i class="bi bi-arrow-right"></i>
+      </a>
+    </div>
+  </div>
+</div>

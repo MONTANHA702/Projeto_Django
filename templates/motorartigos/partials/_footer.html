@@ -1,7 +1,11 @@
 {% load static %}
 
-<footer>class='rodape'
-    DJANGODF &copy; 2026
-
+<footer class="rodape">
+  <div class="rodape-links">
+    <a href="{% url 'index' %}">Home</a>
+    <a href="{% url 'index' %}#autores">Autores</a>
+    <a href="{% url 'index' %}#artigos">Artigos</a>
+    <a href="https://www.linkedin.com" target="_blank">LinkedIn</a>
+  </div>
+  <p>DJANGODF &copy; 2026</p>
 </footer>
-

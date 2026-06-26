@@ -1,0 +1,30 @@
+{% extends 'motorartigos/base.html' %}
+{% load static %}
+
+{% block title %}Artigos de {{ autor.nome }}{% endblock %}
+
+{% block content %}
+<main class="container py-5">
+
+  <a href="{% url 'index' %}" class="btn-back mb-4 d-inline-flex align-items-center gap-2">
+    <i class="bi bi-arrow-left"></i> Voltar
+  </a>
+
+  <h2 class="section-title mb-2">Artigos de {{ autor.nome }}</h2>
+  <p class="text-secondary mb-5">{{ autor.biografia }}</p>
+
+  <div class="row g-4">
+    {% for artigo in artigos %}
+      <div class="col-12 col-md-6 col-lg-4">
+        {% include 'motorartigos/partials/_article_card.html' %}
+      </div>
+    {% empty %}
+      <div class="col-12 text-center py-5">
+        <i class="bi bi-inbox-fill fs-1 text-secondary d-block mb-3"></i>
+        <h5 class="text-secondary">Nenhum artigo encontrado para este autor.</h5>
+      </div>
+    {% endfor %}
+  </div>
+
+</main>
+{% endblock %}

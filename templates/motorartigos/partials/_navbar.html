@@ -1,0 +1,44 @@
+{% load static %}
+<nav class="menu-container">
+    <ul>
+        <li><a href="https://www.python.org/doc/" target="_blank">Documentação Python</a></li>
+        <li><a href="https://www.cursoemvideo.com/curso/redes-de-computadores/" target="_blank">Fundamentos Redes</a></li>
+        <li><a href="https://www.elementsofai.com/" target="_blank">Fundamentos IA</a></li>
+        <li><a href="https://www.kaggle.com/learn" target="_blank">Fundamentos Data Science</a></li>
+        <li><a href="https://www.djangoproject.com/start/" target="_blank">Fundamentos Django</a></li>
+    </ul>
+
+    <div class="clima-box">
+        <span id="clima-icone">⏳</span>
+        <span id="clima-temp">--°C</span>
+        <span id="clima-cidade">Brasília</span>
+    </div>
+</nav>
+
+<script>
+    async function buscarClimaReal() {
+        try {
+            const url = "https://api.open-meteo.com/v1/forecast?latitude=-15.7801&longitude=-47.9292&current_weather=true";
+            const resposta = await fetch(url);
+            const dados = await resposta.json();
+            const temperatura = Math.round(dados.current_weather.temperature);
+            const codigoTempo = dados.current_weather.weathercode;
+
+            document.getElementById('clima-temp').innerText = `${temperatura}°C`;
+
+            let icone = '☀️';
+            if (codigoTempo >= 1 && codigoTempo <= 3) icone = '🌤️';
+            else if (codigoTempo >= 45 && codigoTempo <= 48) icone = '🌫️';
+            else if (codigoTempo >= 51 && codigoTempo <= 67) icone = '🌧️';
+            else if (codigoTempo >= 71 && codigoTempo <= 86) icone = '❄️';
+            else if (codigoTempo >= 95) icone = '⛈️';
+
+            document.getElementById('clima-icone').innerText = icone;
+        } catch (erro) {
+            console.error("Erro ao buscar dados do clima:", erro);
+            document.getElementById('clima-temp').innerText = "Erro";
+            document.getElementById('clima-icone').innerText = "❌";
+        }
+    }
+    buscarClimaReal();
+</script>

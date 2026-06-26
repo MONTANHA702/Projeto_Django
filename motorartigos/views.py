@@ -1,21 +1,22 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
-from motorartigos.models import Autor
+from motorartigos.models import Autor, Artigo
 
 
 
 
-'''  
-
-autores = {
-    1:{'nome':'André Roglem', 'biografia': 'Desenvolvedor Django', 'email':'fernando@gmail.com'},
-    2:{'nome':'Fernando Oliveira', 'biografia': 'Desenvolvedor Django', 'email':'oliveira@gmail.com'},
-    3:{'nome':'Cristina Oliveira', 'biografia': 'Desenvolvedor SQL', 'email':'cristina@gmail.com'}
-}
-'''
 
 autores = Autor.objects.all()
+def artigos_por_autor(request, autor_id):
+    autor = get_object_or_404(Autor, id=autor_id)
+    artigos = Artigo.objects.filter(id_fk_autor=autor)
+    return render(request, 'motorartigos/artigo_autor.html', {'autor': autor, 'artigos': artigos})
  
+def artigo_detalhe(request):
+    artigo_id = request.GET.get('id')
+    artigo = get_object_or_404(Artigo, id=artigo_id)
+    return render(request, 'motorartigos/artigo_detalhe.html', {'artigo': artigo})
+
 def index(request):
     return render(request, 'motorartigos/index.html', {'autores': autores})
 

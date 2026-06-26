@@ -408,3 +408,36 @@ ul {
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
 
+/* ==========================================================================
+   Estilização do _footer
+   ========================================================================== */
+.rodape {
+  background-color: #1a1a2e;
+  color: #aaa;
+  text-align: center;
+  padding: 30px 20px;
+  margin-top: 60px;
+}
+
+.rodape-links {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  margin-bottom: 12px;
+}
+
+.rodape-links a {
+  color: #aaa;
+  text-decoration: none;
+  font-size: 0.875rem;
+}
+
+.rodape-links a:hover {
+  color: #fff;
+}
+
+.rodape p {
+  font-size: 0.8rem;
+  color: #555;
+  margin: 0;
+}

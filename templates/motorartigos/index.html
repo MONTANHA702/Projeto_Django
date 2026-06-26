@@ -4,7 +4,7 @@
 {% block content %}
 <main class="conteudo-principal">
 
-    <section class="section-artigos">
+    <section class="section-artigos" id="artigos">
         <h2 class="subtitulo-secao">Tecnologias & Documentações</h2>
         
         <div class="grid-artigos">
@@ -38,19 +38,21 @@
         </div>
     </section>
 
-    <section class="section-autores">
+    <section class="section-autores" id="autores">
         <h2 class="subtitulo-secao">Autores Cadastrados</h2>
         
         <div class="grid-autores">
             {% for autor in autores %}
-                <div class="card-autor">
-                    <div class="autor-badge">#{{ forloop.counter }}</div>
-                    <h3 class="autor-nome">{{ autor.nome }}</h3>
-                    <p class="autor-bio">{{ autor.biografia }}</p>
-                    <div class="autor-email">
-                        <span>📧 {{ autor.email }}</span>
+                <a href="{% url 'artigos_autor' autor.id %}" class="card-link">
+                    <div class="card-autor">
+                        <div class="autor-badge">#{{ forloop.counter }}</div>
+                        <h3 class="autor-nome">{{ autor.nome }}</h3>
+                        <p class="autor-bio">{{ autor.biografia }}</p>
+                        <div class="autor-email">
+                            <span>📧 {{ autor.email }}</span>
+                        </div>
                     </div>
-                </div>
+                </a>
             {% empty %}
                 <p class="sem-dados">Nenhum autor cadastrado no momento.</p>
             {% endfor %}
