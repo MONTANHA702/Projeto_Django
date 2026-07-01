@@ -42,3 +42,6 @@ class Artigo(models.Model):
 
     class Meta:
         db_table = 'artigo'
+
+    foto = models.ImageField(upload_to='fotos/%Y/%m/%d', blank=True)
+    publicada = models.BooleanField(default=False)
