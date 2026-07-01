@@ -1,6 +1,9 @@
 
 from django.urls import path
-from motorartigos.views import index, doc_gpt, doc_maritaca, doc_minstral, doc_mysql,artigos_por_autor,artigo_detalhe
+from motorartigos.views import (
+    index, doc_gpt, doc_maritaca, doc_minstral, doc_mysql,
+    artigos_por_autor, artigo_detalhe, criar_artigo,
+)
 
 #boa prática
 #cada app se vira com suas rotas
@@ -14,8 +17,8 @@ urlpatterns = [
     path('doc_mysql/', doc_mysql, name='doc_mysql'),
     path('autor/<int:autor_id>/artigos/', artigos_por_autor, name='artigos_autor'),
     path('artigo/', artigo_detalhe, name='artigo'),
-    
-    
-   
+    path('artigo/criar/', criar_artigo, name='criar_artigo'),
 ]
+
+   
 

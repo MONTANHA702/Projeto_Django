@@ -441,3 +441,341 @@ ul {
   color: #555;
   margin: 0;
 }
+
+/* ==========================================================================
+   RESPONSIVIDADE
+   ========================================================================== */
+
+/* ----- Tablets e telas médias (até 768px) ----- */
+@media (max-width: 768px) {
+
+    body {
+        padding: 24px 16px;
+        max-width: 100%;
+    }
+
+    h1 {
+        font-size: 22px;
+        padding: 10px 18px;
+    }
+
+    h4 {
+        font-size: 14px;
+        margin-bottom: 24px;
+    }
+
+    /* Menu + clima empilham verticalmente */
+    .menu-container {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 12px;
+        margin-bottom: 24px;
+        padding-bottom: 16px;
+    }
+
+    ul {
+        gap: 8px;
+    }
+
+    ul li a {
+        padding: 8px 14px;
+        font-size: 13px;
+    }
+
+    .clima-box {
+        align-self: flex-start;
+        width: fit-content;
+    }
+
+    main, .conteudo-principal {
+        padding: 20px;
+    }
+
+    .subtitulo-secao {
+        font-size: 19px;
+    }
+
+    /* Grids ficam mais compactos */
+    .grid-artigos {
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+        gap: 14px;
+    }
+
+    .grid-autores {
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 14px;
+    }
+
+    .card-imagem img {
+        width: 60px;
+        height: 60px;
+    }
+
+    /* Cabeçalho de documentação empilha */
+    .doc-header {
+        flex-direction: column;
+        text-align: center;
+        gap: 12px;
+    }
+
+    .rodape-links {
+        flex-wrap: wrap;
+        gap: 14px;
+    }
+}
+
+/* ----- Celulares (até 480px) ----- */
+@media (max-width: 480px) {
+
+    body {
+        padding: 16px 12px;
+    }
+
+    h1 {
+        display: block;
+        font-size: 19px;
+        padding: 10px 14px;
+        text-align: center;
+    }
+
+    h4 {
+        text-align: center;
+        margin-left: 0;
+    }
+
+    ul {
+        justify-content: center;
+    }
+
+    ul li a {
+        flex: 1 1 auto;
+        text-align: center;
+    }
+
+    .clima-box {
+        align-self: center;
+        justify-content: center;
+        width: 100%;
+    }
+
+    /* Cards de artigos em coluna única para facilitar o toque */
+    .grid-artigos {
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    }
+
+    .grid-autores {
+        grid-template-columns: 1fr;
+    }
+
+    .card-autor {
+        padding: 18px;
+    }
+
+    .autor-nome {
+        font-size: 16px;
+        padding-right: 26px;
+    }
+
+    .botao-chat,
+    .botao-maritaca,
+    .botao-mistral,
+    .botao-mysql {
+        display: block;
+        text-align: center;
+        width: 100%;
+    }
+
+    .doc-logo {
+        width: 48px;
+        height: 48px;
+    }
+}
+
+/* ==========================================================================
+   Galeria de Fotos Existentes (formulário de criar artigo)
+   ========================================================================== */
+
+.galeria-fotos {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    gap: 12px;
+    margin: 16px 0 24px;
+}
+
+.foto-opcao {
+    position: relative;
+    cursor: pointer;
+    border: 2px solid transparent;
+    border-radius: 6px;
+    overflow: hidden;
+    transition: border-color 0.2s ease-in-out;
+}
+
+.foto-opcao img {
+    width: 100%;
+    height: 100px;
+    object-fit: cover;
+    display: block;
+}
+
+/* input radio some visualmente, mas continua funcional/acessível */
+.foto-opcao input[type="radio"] {
+    position: absolute;
+    top: 6px;
+    left: 6px;
+    width: 18px;
+    height: 18px;
+}
+
+/* Destaque quando a foto está selecionada */
+.foto-opcao:has(input:checked) {
+    border-color: var(--borda-cor);
+    box-shadow: 0 0 0 2px var(--borda-cor);
+}
+
+/* ==========================================
+   GRID DOS AUTORES
+========================================== */
+.grid-autores {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 250px));
+    justify-content: center;
+    gap: 24px;
+    margin-top: 20px;
+}
+
+/* ==========================================
+   CARD
+========================================== */
+.card-autor {
+    background: #ffffff;
+    border-radius: 16px;
+    overflow: hidden;
+    position: relative;
+    color: #0f172a;
+    transition: all .3s ease;
+    box-shadow:
+        0 5px 15px rgba(0,0,0,.08);
+}
+
+.card-autor:hover {
+    transform: translateY(-8px);
+    box-shadow:
+        0 18px 35px rgba(0,0,0,.18);
+}
+
+/* ==========================================
+   IMAGEM DE CAPA
+========================================== */
+.autor-capa {
+    width: 100%;
+    height: 120px;
+    overflow: hidden;
+    background: #e2e8f0;
+}
+
+.autor-capa img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform .4s;
+}
+
+.card-autor:hover .autor-capa img {
+    transform: scale(1.05);
+}
+
+/* ==========================================
+   BADGE DO ID
+========================================== */
+.autor-badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: rgba(15, 23, 42, 0.85);
+    color: #fff;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 6px 10px;
+    border-radius: 20px;
+    z-index: 10;
+}
+
+/* ==========================================
+   CONTEÚDO
+========================================== */
+.autor-info {
+    padding: 18px;
+}
+
+.autor-nome {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: #0f172a;
+}
+
+.autor-bio {
+    font-size: 14px;
+    color: #64748b;
+    line-height: 1.5;
+    margin-bottom: 16px;
+    min-height: 45px;
+}
+
+/* ==========================================
+   EMAIL
+========================================== */
+.autor-email {
+    border-top: 1px solid #e2e8f0;
+    padding-top: 12px;
+    font-size: 13px;
+    color: #64748b;
+    word-break: break-word;
+}
+
+/* ==========================================
+   QUANDO NÃO HÁ FOTO
+========================================== */
+.autor-capa img[src=""],
+.autor-capa img:not([src]) {
+    display: none;
+}
+
+.autor-capa:empty {
+    background: linear-gradient(
+        135deg,
+        #2563eb,
+        #1e3a8a
+    );
+}
+
+/* ==========================================
+   RESPONSIVIDADE
+========================================== */
+@media (max-width: 768px) {
+    .grid-autores {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 18px;
+    }
+
+    .autor-capa {
+        height: 100px;
+    }
+
+    .autor-info {
+        padding: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .grid-autores {
+        grid-template-columns: 1fr;
+    }
+
+    .card-autor {
+        max-width: 320px;
+        margin: 0 auto;
+    }
+}

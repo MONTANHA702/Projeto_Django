@@ -46,10 +46,21 @@
                 <a href="{% url 'artigos_autor' autor.id %}" class="card-link">
                     <div class="card-autor">
                         <div class="autor-badge">#{{ forloop.counter }}</div>
-                        <h3 class="autor-nome">{{ autor.nome }}</h3>
-                        <p class="autor-bio">{{ autor.biografia }}</p>
-                        <div class="autor-email">
-                            <span>📧 {{ autor.email }}</span>
+
+                        <div class="autor-capa">
+                            {% if autor.ultimo_artigo and autor.ultimo_artigo.foto %}
+                                <img src="{{ autor.ultimo_artigo.foto.url }}" alt="Último artigo de {{ autor.nome }}">
+                            {% else %}
+                                <img src="{% static 'img/autor-generico.png' %}" alt="Sem artigo publicado">
+                            {% endif %}
+                        </div>
+
+                        <div class="autor-info">
+                            <h3 class="autor-nome">{{ autor.nome }}</h3>
+                            <p class="autor-bio">{{ autor.biografia }}</p>
+                            <div class="autor-email">
+                                <span>📧 {{ autor.email }}</span>
+                            </div>
                         </div>
                     </div>
                 </a>

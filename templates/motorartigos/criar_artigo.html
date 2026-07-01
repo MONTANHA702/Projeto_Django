@@ -1,0 +1,11 @@
+{% extends 'motorartigos/base.html' %} {% load static %} {% block content %}
+Escrever novo artigo
+{% csrf_token %} {{ form.titulo.label_tag }} {{ form.titulo }} {{ form.texto.label_tag }} {{ form.texto }} {{ form.tag_nivel.label_tag }} {{ form.tag_nivel }} {{ form.publicada.label_tag }} {{ form.publicada }} {{ form.id_fk_eixo.label_tag }} {{ form.id_fk_eixo }} {{ form.id_fk_autor.label_tag }} {{ form.id_fk_autor }}
+Enviar uma foto nova:
+
+{{ form.foto }}
+{{ form.foto_existente.label }}
+
+{% for radio in form.foto_existente %} {{ radio.tag }} Foto existente {% endfor %}
+Publicar artigo
+{% endblock %}
