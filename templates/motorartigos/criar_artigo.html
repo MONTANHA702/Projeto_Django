@@ -1,11 +1,57 @@
-{% extends 'motorartigos/base.html' %} {% load static %} {% block content %}
-Escrever novo artigo
-{% csrf_token %} {{ form.titulo.label_tag }} {{ form.titulo }} {{ form.texto.label_tag }} {{ form.texto }} {{ form.tag_nivel.label_tag }} {{ form.tag_nivel }} {{ form.publicada.label_tag }} {{ form.publicada }} {{ form.id_fk_eixo.label_tag }} {{ form.id_fk_eixo }} {{ form.id_fk_autor.label_tag }} {{ form.id_fk_autor }}
-Enviar uma foto nova:
+```html
+{% extends 'motorartigos/base.html' %}
+{% load static %}
 
-{{ form.foto }}
-{{ form.foto_existente.label }}
+{% block content %}
 
-{% for radio in form.foto_existente %} {{ radio.tag }} Foto existente {% endfor %}
-Publicar artigo
+<h2>Escrever novo artigo</h2>
+
+<form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+
+    {{ form.titulo.label_tag }}
+    {{ form.titulo }}
+
+    {{ form.texto.label_tag }}
+    {{ form.texto }}
+
+    {{ form.tag_nivel.label_tag }}
+    {{ form.tag_nivel }}
+
+    {{ form.publicada.label_tag }}
+    {{ form.publicada }}
+
+    {{ form.id_fk_eixo.label_tag }}
+    {{ form.id_fk_eixo }}
+
+    {{ form.id_fk_autor.label_tag }}
+    {{ form.id_fk_autor }}
+
+    <p>Enviar uma foto nova:</p>
+
+    {{ form.foto }}
+
+    {% if form.instance.foto %}
+        <p>Imagem atual:</p>
+        <img src="{{ form.instance.foto.url }}"
+             style="max-width:300px;">
+    {% endif %}
+
+    {% if form.foto_existente %}
+        <p>{{ form.foto_existente.label }}</p>
+
+        {% for radio in form.foto_existente %}
+            <label>
+                {{ radio.tag }}
+                {{ radio.choice_label }}
+            </label><br>
+        {% endfor %}
+    {% endif %}
+
+    <button type="submit">
+        Publicar artigo
+    </button>
+</form>
+
 {% endblock %}
+```

@@ -1,5 +1,7 @@
 from django.db import models
 from tinymce.models import HTMLField
+from django.templatetags.static import static
+
 # Create your models here.
 # Aqui vou criar minhas classes de entidade (banco de dados)
 
@@ -42,6 +44,14 @@ class Artigo(models.Model):
     tag_nivel = models.CharField(max_length=1, choices=TAG_NIVEL, default='B')
     publicada = models.BooleanField(default=False)
     data_publicacao = models.DateTimeField(auto_now_add=True)
+    
+
+
+    @property
+    def image_url(self):
+        if self.foto:
+            return self.foto.url
+        return static('img/default_card.png')
 
     id_fk_eixo = models.ForeignKey(
         EixoTecnologia,

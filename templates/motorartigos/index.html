@@ -51,7 +51,7 @@
                             {% if autor.ultimo_artigo and autor.ultimo_artigo.foto %}
                                 <img src="{{ autor.ultimo_artigo.foto.url }}" alt="Último artigo de {{ autor.nome }}">
                             {% else %}
-                                <img src="{% static 'img/autor-generico.png' %}" alt="Sem artigo publicado">
+                                <img src="{% static 'img/default_card.png' %}" alt="Sem artigo publicado">
                             {% endif %}
                         </div>
 

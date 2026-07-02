@@ -16,6 +16,12 @@
     <i class="bi bi-person"></i> {{ artigo.id_fk_autor.nome }}
   </div>
 
+  {% if artigo.foto %}
+    <div class="artigo-imagem-capa mb-4">
+      <img src="{{ artigo.foto.url }}" alt="{{ artigo.titulo }}">
+    </div>
+  {% endif %}
+
   <div class="artigo-conteudo">
     {{ artigo.texto|safe }}
   </div>
