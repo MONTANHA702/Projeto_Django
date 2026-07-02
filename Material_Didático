@@ -1,0 +1,36 @@
+# Apostila — Python & Django na Prática
+
+**Dos primeiros passos a uma aplicação pronta para o mercado.**
+
+Material de estudo em Word (`.docx`) que consolida o curso **Django-001** do professor Rômulo Cesar em uma trilha contínua: do ambiente virtual à aplicação com banco relacional, painel administrativo, editor de texto rico, upload de imagens e busca.
+
+O fio condutor é o projeto **DevBlog** (`motorartigos`) — um portal de artigos de tecnologia que serve de esqueleto para produtos reais: blogs corporativos, portais de conteúdo, catálogos e sistemas de gestão.
+
+## O que você vai encontrar
+
+- **10 capítulos** cobrindo fundamentos do Django, arquitetura MTV, models e migrations, admin, views/rotas/templates, arquivos estáticos, relacionamentos (ForeignKey), QuerySets, migração de SQLite para MySQL e checklist de produção.
+- **Código real** extraído do repositório do curso ([`romulodf-cesar/cursodjango`](https://github.com/romulodf-cesar/cursodjango)), comentado linha a linha.
+- **Exercícios das aulas** distribuídos ao longo do texto, em boxes destacados.
+- **Dicas de mercado e avisos de erros comuns** — o "por que" além do "como".
+
+## Como usar
+
+1. Abra o arquivo `Apostila_Python_Django.docx` no Word, LibreOffice ou Google Docs.
+2. Atualize o sumário automático (F9 no Word) se necessário.
+3. Digite o código dos exemplos em um projeto Django local — a apostila foi escrita para ser praticada, não apenas lida.
+
+## Pré-requisitos
+
+- Python 3.10+
+- Familiaridade básica com HTML e linha de comando
+- Vontade de rodar `runserver` e ver o foguetinho decolar 🚀
+
+## Créditos
+
+- **Curso e código-fonte:** professor Rômulo Cesar (Django-001)
+- **Compilação e ampliação:** Jader Santos, com apoio do Claude (Anthropic)
+- **Ano:** 2026
+
+---
+
+*Material de estudo pessoal, sem fins comerciais.*
